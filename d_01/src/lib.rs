@@ -51,7 +51,8 @@ mod tests {
 
     #[test]
     fn d01_1() {
-        let lines = read_lines("./src/input.txt")
+        let lines = read_lines("data/input.txt")
+            .expect("fail to read input file...")
             .iter()
             .map(|f| f.parse().unwrap())
             .collect();
@@ -70,7 +71,8 @@ mod tests {
 
     #[test]
     fn d01_2() {
-        let entries = read_lines("./src/input.txt")
+        let entries = read_lines("data/input.txt")
+            .unwrap()
             .iter()
             .map(|f| f.parse().unwrap())
             .collect();
