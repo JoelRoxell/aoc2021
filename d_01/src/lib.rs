@@ -20,22 +20,19 @@ pub fn count_increases(measurements: Vec<usize>) -> usize {
 }
 
 pub fn increase_by_window(measurements: Vec<usize>, window: usize) -> Vec<usize> {
-    let mut result_list = vec![];
     let window = window - 1;
 
     measurements
         .iter()
         .enumerate()
         .skip(window)
-        .for_each(|(i, &_n)| {
-            println!("{} {}", i, _n);
+        .map(|(i, &_n)| {
             let w = &measurements[i - window..=i];
             let position_sum: usize = w.iter().sum();
 
-            result_list.push(position_sum);
-        });
-
-    result_list
+            position_sum
+        })
+        .collect()
 }
 
 #[cfg(test)]
