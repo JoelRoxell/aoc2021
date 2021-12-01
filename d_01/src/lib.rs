@@ -21,19 +21,19 @@ pub fn count_increases(measurements: Vec<usize>) -> usize {
 
 pub fn increase_by_window(measurements: Vec<usize>, window: usize) -> Vec<usize> {
     let mut result_list = vec![];
+    let window = window - 1;
 
-    measurements.iter().enumerate().for_each(|(i, &_n)| {
-        let window = window - 1;
+    measurements
+        .iter()
+        .enumerate()
+        .skip(window)
+        .for_each(|(i, &_n)| {
+            println!("{} {}", i, _n);
+            let w = &measurements[i - window..=i];
+            let position_sum: usize = w.iter().sum();
 
-        if i < window {
-            return;
-        }
-
-        let w = &measurements[i - window..i + 1];
-        let position_sum: usize = w.iter().sum();
-
-        result_list.push(position_sum);
-    });
+            result_list.push(position_sum);
+        });
 
     result_list
 }
@@ -77,7 +77,6 @@ mod tests {
             .iter()
             .map(|f| f.parse().unwrap())
             .collect();
-
         let n = count_increases(increase_by_window(entries, 3));
 
         assert_eq!(n, 1518)
