@@ -6,6 +6,14 @@ pub struct Sub {
 }
 
 impl Sub {
+    pub fn new(horizontal: i32, depth: i32, aim: Option<i32>) -> Self {
+        Self {
+            horizontal,
+            depth,
+            aim,
+        }
+    }
+
     pub fn forward(&mut self, n: i32) {
         self.horizontal += n;
 
@@ -63,12 +71,7 @@ mod tests {
             "down 8".to_string(),
             "forward 2".to_string(),
         ];
-
-        let mut s = Sub {
-            horizontal: 0,
-            depth: 0,
-            aim: None,
-        };
+        let mut s = Sub::new(0, 0, None);
 
         s.guide(data);
 
@@ -78,12 +81,7 @@ mod tests {
     #[test]
     fn d_02a() {
         let data = read_lines("data/input.txt").unwrap();
-
-        let mut s = Sub {
-            horizontal: 0,
-            depth: 0,
-            aim: None,
-        };
+        let mut s = Sub::new(0, 0, None);
 
         s.guide(data);
 
@@ -101,12 +99,7 @@ mod tests {
             "down 8".to_string(),
             "forward 2".to_string(),
         ];
-
-        let mut s = Sub {
-            horizontal: 0,
-            depth: 0,
-            aim: Some(0),
-        };
+        let mut s = Sub::new(0, 0, Some(0));
 
         s.guide(data);
 
@@ -116,12 +109,7 @@ mod tests {
     #[test]
     fn d_02b() {
         let data = read_lines("data/input.txt").unwrap();
-
-        let mut s = Sub {
-            horizontal: 0,
-            depth: 0,
-            aim: Some(0),
-        };
+        let mut s = Sub::new(0, 0, Some(0));
 
         s.guide(data);
 
