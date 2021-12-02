@@ -3,4 +3,5 @@
 members = [
 	"shared",
 	"d_01",
+	"d_02"
 ]
