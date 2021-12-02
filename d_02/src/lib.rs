@@ -53,6 +53,7 @@ mod tests {
     use shared::read_lines;
 
     #[test]
+    #[ignore]
     fn d_02_a() {
         let data = vec![
             "forward 5".to_string(),
@@ -90,6 +91,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore]
     fn d_02_b() {
         let data = vec![
             "forward 5".to_string(),

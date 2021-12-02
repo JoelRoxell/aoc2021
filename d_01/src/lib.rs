@@ -43,14 +43,14 @@ mod tests {
 
     #[test]
     #[ignore]
-    fn d01_01() {
+    fn d_01_a() {
         let measurements = vec![199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
 
         assert_eq!(count_increases(measurements), 7);
     }
 
     #[test]
-    fn d01_1() {
+    fn d_01a() {
         let lines = read_lines("data/input.txt")
             .expect("fail to read input file...")
             .iter()
@@ -62,7 +62,7 @@ mod tests {
 
     #[test]
     #[ignore]
-    fn d01_02() {
+    fn d_01_b() {
         let measurements = vec![199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
         let n = count_increases(increase_by_window(measurements, 3));
 
@@ -70,7 +70,7 @@ mod tests {
     }
 
     #[test]
-    fn d01_2() {
+    fn d_01b() {
         let entries = read_lines("data/input.txt")
             .unwrap()
             .iter()
