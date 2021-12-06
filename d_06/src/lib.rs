@@ -26,9 +26,7 @@ pub fn calculate_day(
     if fish == 0 {
         calculate_day(8, tmr, sum, mem) + calculate_day(6, tmr, sum, mem)
     } else {
-        let fish_key = fish.to_string();
-        let day_key = day.to_string();
-        let key = get_cache_key(&fish_key, &day_key);
+        let key = get_cache_key(&fish.to_string(), &day.to_string());
         let fish_memory = mem.get(&key);
 
         match fish_memory {
@@ -46,12 +44,11 @@ pub fn calculate_day(
 
 #[cfg(test)]
 mod tests {
+    use crate::{calculate_day, read_data};
     use std::collections::HashMap;
 
-    use crate::{calculate_day, read_data};
-
     #[test]
-    fn d05_a() {
+    fn d06_a() {
         let d = read_data("data/demo.txt");
         let mut h = HashMap::new();
         let sum = d
@@ -69,7 +66,7 @@ mod tests {
     }
 
     #[test]
-    fn d05a() {
+    fn d06a() {
         let d = read_data("data/input.txt");
         let mut h = HashMap::new();
         let sum = d
@@ -80,20 +77,18 @@ mod tests {
     }
 
     #[test]
-    fn d05b() {
+    fn d06b() {
         let d = read_data("data/input.txt");
-        let mut sum = 0;
         let mut h = HashMap::new();
-
-        for f in d {
-            sum += calculate_day(f, 256, 0, &mut h);
-        }
+        let sum = d
+            .iter()
+            .fold(0, |acc, fish| acc + calculate_day(*fish, 256, 0, &mut h));
 
         assert_eq!(sum, 1609314870967)
     }
 
     #[test]
-    fn read_data_test() {
+    fn d06_read_data_test() {
         let d = read_data("data/demo.txt");
 
         assert_eq!(d.len(), 5)
