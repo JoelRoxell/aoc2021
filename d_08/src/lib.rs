@@ -242,7 +242,7 @@ mod tests {
         get_number, read_input, solve_given, solve_row, sort, str_permutation, transform_puzzle, N,
     };
     #[test]
-    fn a() {
+    fn d08a() {
         let input = read_input("data/input.txt");
         let mut sum = 0;
 
@@ -261,7 +261,7 @@ mod tests {
     }
 
     #[test]
-    fn b() {
+    fn d08b() {
         let data = read_input("data/input.txt");
         let mut sum = 0;
 
@@ -275,8 +275,6 @@ mod tests {
 
                     for item in puzzle {
                         let n_str = transform_puzzle(&item, &m);
-                        // println!("{} = {}", sort(&item), sort(&n_str));
-
                         let n = get_number(&n_str).unwrap();
 
                         res.push_str(&n.to_string());

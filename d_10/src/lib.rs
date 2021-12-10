@@ -37,6 +37,7 @@ pub fn parse_chunk(chunk: &str) -> Result<Vec<char>, usize> {
 
         if o != p {
             let s = score_map.get(&symbol).unwrap();
+
             return Err(*s);
         }
     }
@@ -53,26 +54,26 @@ mod tests {
 
     #[test]
     fn single() {
-        // match parse_chunk("(]") {
-        //     Ok(_) => {}
-        //     Err(n) => {
-        //         assert_eq!(n, 57);
-        //     }
-        // }
+        match parse_chunk("(]") {
+            Ok(_) => {}
+            Err(n) => {
+                assert_eq!(n, 57);
+            }
+        }
 
-        // match parse_chunk("{()()()>") {
-        //     Ok(_) => {}
-        //     Err(n) => {
-        //         assert_eq!(n, 25137);
-        //     }
-        // }
+        match parse_chunk("{()()()>") {
+            Ok(_) => {}
+            Err(n) => {
+                assert_eq!(n, 25137);
+            }
+        }
 
-        // match parse_chunk("{()()()}") {
-        //     Ok(_) => {}
-        //     Err(_) => {
-        //         panic!("should't fail");
-        //     }
-        // }
+        match parse_chunk("{()()()}") {
+            Ok(_) => {}
+            Err(_) => {
+                panic!("should't fail");
+            }
+        }
 
         match parse_chunk("{()()(") {
             Ok(incomplete) => {
@@ -87,7 +88,7 @@ mod tests {
     }
 
     #[test]
-    fn a() {
+    fn d10a() {
         let lines = read_lines("data/input.txt").unwrap();
         let mut errs = vec![];
 
@@ -104,7 +105,7 @@ mod tests {
     }
 
     #[test]
-    fn b() {
+    fn d10b() {
         let score_map = HashMap::from([(')', 1), (']', 2), ('}', 3), ('>', 4)]);
         let lines = read_lines("data/input.txt").unwrap();
         let mut uncompleted = vec![];
@@ -135,11 +136,6 @@ mod tests {
 
         let middle = points.len() / 2;
 
-        for p in &points {
-            println!("{:?}", p)
-        }
-
-        println!("len {}, m {}", points.len(), middle);
-        println!("{}", points[middle]);
+        assert_eq!(2182912364, points[middle])
     }
 }

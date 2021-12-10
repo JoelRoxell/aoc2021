@@ -59,7 +59,7 @@ mod tests {
     use crate::{find_lowest_cost_1, find_lowest_cost_2};
 
     #[test]
-    fn a() {
+    fn d07a() {
         let v = read_symbol_separated_items("data/demo.txt", ',').unwrap();
         let mut v: Vec<i32> = v.iter().map(|l| l.parse().unwrap()).collect();
 
@@ -67,7 +67,8 @@ mod tests {
     }
 
     #[test]
-    fn b() {
+    #[ignore = "slowpoke"]
+    fn d07b() {
         let v = read_symbol_separated_items("data/input.txt", ',').unwrap();
         let mut v: Vec<i32> = v.iter().map(|l| l.parse().unwrap()).collect();
 

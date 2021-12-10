@@ -76,7 +76,7 @@ mod tests {
     use crate::{expand, is_low_point, read_field};
 
     #[test]
-    fn a() {
+    fn d09a() {
         let (field, h, w) = read_field("data/input.txt");
         let mut sum = 0;
 
@@ -94,7 +94,7 @@ mod tests {
     }
 
     #[test]
-    fn b() {
+    fn d09b() {
         let (field, h, w) = read_field("data/input.txt");
         let mut explored = HashMap::new();
         let mut basins = vec![];
