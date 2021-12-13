@@ -104,7 +104,7 @@ pub fn explore(
     {
         return;
     } else if allow_dup && node.value != "end" && Cavern::Small == node.size {
-        for (_, val) in &explored {
+        for val in explored.values() {
             if *val > 1 {
                 visited_a_cavern_twice = true;
                 break;
